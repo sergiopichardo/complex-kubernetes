@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: deployment
+metadata: 
+  name: server-deployment
+# specifications for deployment 
+spec: 
+  replicas: 3 
+  selector: 
+    matchLabels: # is a map of key/value pairs  "matchLabels": {"component": "server"}
+      component: server 
+  template: # Template defines the pods that will be created from this pod template. 
+    metadata: 
+      labels: 
+        component: server 
+    # specifications for container
+    spec: 
+      containers: 
+        - name: server 
+          image: sergiopichardo/multi-server 
+          ports: 
+            - containerPort: 5000 
+  
