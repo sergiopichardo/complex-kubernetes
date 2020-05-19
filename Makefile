@@ -7,3 +7,6 @@ lint:
 	kubeval ./k8s/worker-deployment.yml
 	kubeval ./k8s/redis-deployment.yml
 
+apply: 
+	kubectl apply -f k8s 
+
