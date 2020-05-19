@@ -12,8 +12,15 @@ spec:
       labels: 
         component: postgres 
     spec: 
+      volumes: 
+        # Allocate persistent storage
+        - name: postgres-storage 
+          persistentVolumeClaim:  
+            claimName: database-persistent-volume-claim 
       containers: 
         - name: postgres 
           image: postgres 
           ports: 
             - containerPort: 5432
+          volumeMounts: 
+            - name: postgres-storage
