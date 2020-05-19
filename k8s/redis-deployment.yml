@@ -9,7 +9,7 @@ spec:
       component: redis 
   template: 
     metadata: 
-      label: 
+      labels: 
         component: redis 
     spec: 
       containers: 
