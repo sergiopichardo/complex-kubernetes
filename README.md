@@ -7,6 +7,11 @@ Kubernetization of multicontainer app. It includes 11 config yaml files.
 <code goes here>
 ```
 
+## Apply k8s yaml configuration files 
+```sh
+kubctl apply -f k8s/
+```
+
 ## Linting 
 ```sh
 make lint 
