@@ -19,4 +19,22 @@ spec:
           image: sergiopichardo/multi-server 
           ports: 
             - containerPort: 5000 
-  
+          env: 
+            - name: REDIS_HOST
+              value: redis-cluster-ip-service
+            - name: REDIS_PORT
+              value: 6379
+            - name: PGUSER
+              value: postgres
+            - name: PGHOST
+              value: postgres-cluster-ip-service
+            - name: PGDATABASE
+              value: postgres
+            - name: PGPORT
+              value: 5432
+              # this is stored as a kubernetes secret
+            - name: POSTGRES_PASSWORD   # name of env variable
+              valueFrom: 
+                secretKeyRef: 
+                  name: postgrespassword
+                  key: POSTGRES_PASSWORD    # secret's key
